@@ -1,0 +1,36 @@
+header {
+    background-color: #244751;
+    color: #E8FDFF;
+}
+body{
+    background-color: whitesmoke;
+    /* font-family: 'Bonheur Royale', cursive; */
+    font-family: 'Montserrat', sans-serif;
+}
+main {
+    background-color: white;
+    padding: 16px;
+}
+.finstagram-post {
+    margin-bottom: 48px;
+}
+.finstagram-post .user-info img {
+    border-radius: 60%;
+
+}
+.user-info img:hover {
+    width:40px;
+}
+
+a.photo{
+    transition: padding 0.5s;
+}
+a.photo:hover{
+    padding: 10px;
+}
+h2:hover{
+  transition-property: font-size;
+  transition-duration: 4s;
+  transition-delay: 2s;
+  transform: scale(1.1);
+}
