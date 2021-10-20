@@ -3,7 +3,9 @@ class FinstagramPost < ActiveRecord::Base
     has_many :comments
     has_many :likes
 
-    validates_presence_of :user
+    # validations in between association definitions and methods!
+    validates :photo_url, :user, presence: true
+    #validates_presence_of :user
 
     def humanized_time_ago
         time_ago_in_seconds = Time.now - self.created_at
