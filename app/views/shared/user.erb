@@ -1,0 +1,15 @@
+<article class="user">
+    <div class="user-posts">
+        <h1>
+            <img src="<%= user.avatar_url %>" alt="<%= user.username %>">
+            <%= user.username %>
+        </h1>
+        <h2>Member since:<%= user.created_at.strftime("%d/%m/%Y")  %> </h2>
+        <h2>User id: <%= user.id %></h2>
+    </div>
+    <div class="posts">
+        <% @user.finstagram_posts.each do |finstagram_post| %>
+            <%= erb(:'shared/finstagram_post', { locals: { finstagram_post: finstagram_post }}) %>
+        <% end %>
+    </div>
+</article>

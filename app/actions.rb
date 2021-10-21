@@ -77,3 +77,8 @@ get '/finstagram_posts/:id' do
   @finstagram_post = FinstagramPost.find(params[:id])   # find the finstagram post with the ID from the URL
   erb(:"finstagram_posts/show")               # render app/views/finstagram_posts/show.erb
 end
+
+get '/user/:id' do
+  @user = User.find(params[:id])
+  erb(:"user/show")               # render app/views/finstagram_posts/show.erb
+end

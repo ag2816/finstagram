@@ -28,9 +28,13 @@ a.photo{
 a.photo:hover{
     padding: 10px;
 }
-h2:hover{
+.user-info h2:hover{
   transition-property: font-size;
   transition-duration: 4s;
   transition-delay: 2s;
   transform: scale(1.1);
+}
+
+.user-posts img{
+    width:200px;
 }
