@@ -4,6 +4,13 @@ helpers do
   end
 end
 
+before '/' do
+ # redirect to('login') unless logged_in?
+  if ! current_user
+    redirect to('/login')
+  end
+end
+
 get '/' do
   @finstagram_posts = FinstagramPost.order(created_at: :desc)
   erb(:index)
@@ -81,4 +88,29 @@ end
 get '/user/:id' do
   @user = User.find(params[:id])
   erb(:"user/show")               # render app/views/finstagram_posts/show.erb
+end
+
+post '/comments' do
+  text = params[:text]
+  post_id = params[:finstagram_post_id]
+  comment = Comment.new({text: text,finstagram_post_id: post_id, user_id:  current_user.id  })
+
+  # save the comment
+  comment.save
+
+  # `redirect` back to wherever we came from
+  redirect(back)
+end
+
+post '/likes' do
+  post_id = params[:finstagram_post_id]
+  like = Like.new({finstagram_post_id: post_id, user_id: current_user.id})
+  like.save
+  redirect(back)
+end
+
+delete '/likes/:id' do
+  like = Like.find(params[:id])
+  like.destroy
+  redirect(back)
 end
