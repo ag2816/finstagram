@@ -20,7 +20,7 @@
     <% finstagram_post.comments.each do |comment| %>
       <li>
         <p>
-          <%= comment.user.username %>: <%= comment.text %>
+        <a href="/user/<%= comment.user.id %>"><%= comment.user.username %></a>: <%= comment.text %>
         </p>
       </li>
     <% end %>

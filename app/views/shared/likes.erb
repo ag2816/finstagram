@@ -12,6 +12,8 @@
       </button>
     </form>
 
+  <% elsif post = current_user.finstagram_posts.find_by({id: finstagram_post.id}) %>
+      <!-- do nothing -- a user can't like their own posts! -->
   <% else %>
 
     <!-- display our existing form to create a like -->
